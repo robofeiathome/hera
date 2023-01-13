@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- interfaces -->
+  <arg name="enable_rviz"   default="true"/>
+  <arg name="enable_teleop" default="true"/>
+  <arg name="enable_bot"    default="true"/>
+
+  <!-- rviz -->
+  <group if="$(arg enable_rviz)" >
+    <node name="rviz" pkg="rviz" type="rviz" respawn="true"
+    args="-d $(find hera)/config/rviz/hera.rviz" />
+  </group>
+
+  <!-- teleop -->
+  <group if="$(arg enable_teleop)" >
+    <node
+      name="teleop_twist_keyboard"
+      pkg="teleop_twist_keyboard"
+      type="teleop_twist_keyboard.py"
+      launch-prefix="xterm -hold -e"/>
+  </group>
+
+  <!-- bot -->
+  <group if="$(arg enable_bot)" >
+    <node
+      name="bot"
+      pkg="hera_telegram"
+      type="bot.py"
+      output="screen"/>
+  </group>
+
+</launch>

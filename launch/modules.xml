@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="robot_name"      default=""/>
+  <arg name="map_name"        default="fei_k5"/>
+  <arg name="resources"       default=""/>
+
+  <arg name="hear"            default="true"/>
+  <arg name="talk"            default="true"/>
+  <arg name="map"             default="true"/>
+  <arg name="people"          default="true"/>
+  <arg name="color_filter"    default="true"/>
+  <arg name="navigation"      default="true"/>
+  <arg name="manipulator"     default="true"/>
+  <arg name="objects"         default="true"/>
+  <arg name="head"            default="true"/>
+  <arg name="octomap"         default="true"/>
+  
+
+  <!-- hear -->
+  <group if="$(arg hear)">
+    <node name="Server_Speech" pkg="gsr_ros" type="recognition.py" output="screen">
+	      <!-- API Options: Google, Sphinx, Wit, Houndify, DeepSpeech-->
+    		<param name="API" value="Google" />
+    		<param name='KEY1' value=''/>
+    		<param name='KEY2' value=''/>
+    		<param name="PATH" value="$(find gsr_ros)/src" />
+    </node>
+  </group>
+
+  <!-- talk -->
+  <group if="$(arg talk)">
+    <node name="gtts_ros" pkg="gtts_ros" type="gtts_node.py" output="screen">
+      <param name="ONLINE" value="true" />
+    </node>
+  </group>
+
+  <!-- map -->
+  <group if="$(arg map)">
+    <include file="$(find map)/launch/map.launch">
+      <arg name="map_resource" default="$(arg resources)/map/$(arg map_name)"/>
+    </include>
+  </group>
+
+  <!-- people -->
+  <group if="$(arg people)">
+    <!-- <node name="people" pkg="people" type="people_node.py" output="screen">
+      <param name="clf" value="/home/robofei/catkin_ws/filename.joblib" />
+      <param name="models" value="/home/robofei/openpose/models/" />
+      <param name="image_color" value="/camera/rgb/image_raw" />
+      <param name="image_cloud" value="/camera/depth/points" />
+    </node> -->
+    <node name ="save_face" pkg="hera_face" type="face_capture.py" output="screen"/>
+    <node name ="face_recog" pkg="hera_face" type="people.py" output="screen"/>
+    <node name ="face_check" pkg="hera_face" type="face_check.py" output="screen"/>
+    
+
+  </group>
+
+  <!-- color_filter -->
+  <group if="$(arg color_filter)">
+    <node name ="color_filter" pkg="hera_face" type="blob_detection.py" output="screen"/>
+  </group>
+
+  <!-- navigation -->
+  <group if="$(arg navigation)">
+
+    <node pkg="hera_control" type="utils.py" name="robot_base_utils">
+      <param name="enable_clear_costmap" value="true"/>
+      <param name="enable_amcl_update" value="true"/>
+      <param name="clear_costmap_period" value="10"/>
+      <param name="amcl_updates" value="10"/>
+    </node> 
+
+    <include file="$(find hera)/launch/navigation/localization.xml" />
+    <include file="$(find hera)/launch/navigation/planning.xml" />
+
+    <include file="$(find social_move_base)/launch/start.launch" />
+
+  </group>
+
+  <!-- manipulator -->
+  <group if="$(arg manipulator)">
+
+    <!-- Load joint controller parameters for Gazebo -->
+    <!-- <rosparam file="$(find hera_moveit_config)/config/gazebo_controllers.yaml" /> -->
+    <!-- Spawn Gazebo ROS controllers -->
+    <!-- <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller" /> -->
+    <!-- Load ROS controllers -->
+    <!-- <include file="$(find hera_moveit_config)/launch/ros_controllers.launch"/> -->
+
+    <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->
+    <include file="$(find hera_moveit_config)/launch/move_group.launch">
+      <!-- <arg name="allow_trajectory_execution" value="true"/> -->
+      <!-- <arg name="moveit_controller_manager" value="ros_control" /> -->
+      <!-- <arg name="fake_execution_type" value="interpolate"/> -->
+      <!-- <arg name="info" value="true"/> -->
+      <!-- <arg name="debug" value="false"/> -->
+      <arg name="pipeline" value="ompl"/>
+      <arg name="load_robot_description" value="false"/>
+
+
+
+    </include>
+
+    <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/>
+
+  </group>
+
+
+  <!-- head -->
+  <group if="$(arg head)">
+    <node name ="head" pkg="hera_control" type="head.py" output="screen"/>
+  </group> 
+
+<!-- objects -->
+  <group if="$(arg objects)">
+    <node name="dodo_detector_ros" pkg="dodo_detector_ros" type="detector.py" output="screen">
+        <rosparam command="load" file="$(find dodo_detector_ros)/config/main_config.yaml"/>
+        <param name="image_topic" value="/kinect_one/rgb/image_raw" /> 
+        <param name="point_cloud_topic" value="/kinect_one/depth/points" /> 
+    </node>
+    <!--<node name ="detect_output" pkg="hera_face" type="detect.py" output="screen"/>-->
+    <include file="$(find hera_objects)/launch/objects.launch" />
+  </group>
+
+  <!-- octomap -->
+  <group if="$(arg octomap)">
+    <include ns="move_group" file="$(find hera_moveit_config)/launch/sensor_manager.launch.xml">
+      <arg name="moveit_sensor_manager" value="hera" />
+    </include>
+  </group>
+
+  
+</launch>

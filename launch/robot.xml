@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="robot_name" 	      default="robot"/>
+  <arg name="robot_model"       default="hera_full"/>
+  <arg name="init_pos_x" 	default="0.0"/>
+  <arg name="init_pos_y" 	default="0.0"/>
+  <arg name="init_pos_z" 	default="0.0"/>
+  <arg name="init_yaw"   	default="0.0"/>
+
+  <!-- ###################################################################### -->
+  <!-- ###################################################################### -->
+  <!-- ###################################################################### -->
+
+  <!-- load urdf  -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro $(find hera_description)/robots/$(arg robot_model).urdf.xacro"/>
+
+  <!-- Load joint controller configurations -->
+  <!-- <rosparam file="$(find hera_control)/config/manip_controller.yaml" command="load"/> -->
+  <!-- <rosparam file="$(find hera_control)/config/kinect_controller.yaml" command="load"/> -->
+
+  <!-- publishers -->
+  <!-- <include file="$(find hera_control)/launch/manip_controller.launch"/> -->
+  <!-- <include file="$(find hera_control)/launch/kinect_controller.launch"/> -->
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <rosparam param="source_list" subst_value="true">["dynamixel_controller/joint_states"]</rosparam>
+  </node>
+
+  <!-- ###################################################################### -->
+  <!-- ###################################################################### -->
+  <!-- ###################################################################### -->
+
+  <!-- spawn simulated robot -->
+  <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+    args="-param robot_description
+          -urdf
+          -x $(arg init_pos_x)
+          -y $(arg init_pos_y)
+          -z $(arg init_pos_z)
+          -Y $(arg init_yaw)
+          -model $(arg robot_name)">
+  </node>
+
+</launch>
