@@ -28,7 +28,7 @@ obstacles_layer:
   enabled: true
 
   # A list of observation source names separated by spaces.
-  observation_sources: laser_scan_front_observation laser_scan_back_observation #laser_scan_back_observation point_cloud_base_front_observation point_cloud_torso_front_observation
+  observation_sources: laser_scan_front_observation #laser_scan_back_observation laser_scan_back_observation point_cloud_base_front_observation point_cloud_torso_front_observation
 
   laser_scan_front_observation: {
       topic: base_scan_front,        # The topic on which sensor data comes in for this source.
