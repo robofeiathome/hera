@@ -1,6 +1,6 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 78
+    Help Height: 184
     Name: Displays
     Property Tree Widget:
       Expanded:
@@ -8,7 +8,7 @@ Panels:
         - /HERA1/Sensors1/LaserScan1
         - /HERA1/Navigation1
       Splitter Ratio: 0.5
-    Tree Height: 124
+    Tree Height: 272
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -24,7 +24,6 @@ Panels:
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
-    Experimental: false
     Name: Time
     SyncMode: 0
     SyncSource: Image
@@ -60,8 +59,6 @@ Visualization Manager:
         All Enabled: false
         backrest_link:
           Value: false
-        bar:
-          Value: false
         base:
           Value: false
         base_footprint:
@@ -78,24 +75,16 @@ Visualization Manager:
           Value: false
         base_wheelFR:
           Value: false
-        collection_zone:
-          Value: false
-        dodo_detector_ros/person_0:
-          Value: false
+        dodo_detector_ros/coke-drinks_0:
+          Value: true
+        dodo_detector_ros/pringles-snacks_0:
+          Value: true
+        dodo_detector_ros/pringles-snacks_1:
+          Value: true
         elbow_lift_link:
           Value: false
         elbow_pan_link:
           Value: false
-        end:
-          Value: false
-        entrance:
-          Value: false
-        forbidden_room:
-          Value: false
-        forbidden_room2:
-          Value: true
-        forbidden_room3:
-          Value: true
         gripper_left_end_link:
           Value: false
         gripper_left_link:
@@ -105,8 +94,6 @@ Visualization Manager:
         gripper_right_link:
           Value: false
         head:
-          Value: false
-        inspection:
           Value: false
         kinect_one:
           Value: false
@@ -122,31 +109,11 @@ Visualization Manager:
           Value: false
         kinect_one_rgb_optical_frame:
           Value: false
-        local_host:
-          Value: false
-        locals:
-          Value: false
-        lugares:
-          Value: false
         manip_base_link:
           Value: false
         manip_support_link:
           Value: false
-        map:
-          Value: false
         odom:
-          Value: false
-        party1:
-          Value: false
-        party2:
-          Value: true
-        person:
-          Value: false
-        pose_1:
-          Value: false
-        reception:
-          Value: false
-        search:
           Value: false
         shoulder_lift_link:
           Value: false
@@ -173,92 +140,7 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        map:
-          locals:
-            bar:
-              {}
-            collection_zone:
-              {}
-            end:
-              {}
-            entrance:
-              {}
-            forbidden_room:
-              {}
-            forbidden_room2:
-              {}
-            forbidden_room3:
-              {}
-            inspection:
-              {}
-            local_host:
-              {}
-            lugares:
-              {}
-            party1:
-              {}
-            party2:
-              {}
-            person:
-              {}
-            pose_1:
-              {}
-            reception:
-              {}
-            search:
-              {}
-          odom:
-            base_footprint:
-              base:
-                base_scan_back:
-                  {}
-                base_scan_front:
-                  {}
-                base_wheelBL:
-                  {}
-                base_wheelBR:
-                  {}
-                base_wheelFL:
-                  {}
-                base_wheelFR:
-                  {}
-                torso:
-                  backrest_link:
-                    {}
-                  head:
-                    {}
-                  manip_support_link:
-                    manip_base_link:
-                      shoulder_pan_link:
-                        shoulder_lift_link:
-                          elbow_pan_link:
-                            elbow_lift_link:
-                              wrist_pan_link:
-                                wrist_lift_link:
-                                  gripper_left_link:
-                                    gripper_left_end_link:
-                                      {}
-                                  gripper_right_link:
-                                    gripper_right_end_link:
-                                      {}
-                  torso_sensor_plat:
-                    kinect_one:
-                      kinect_one_depth:
-                        dodo_detector_ros/person_0:
-                          {}
-                      kinect_one_depth_frame:
-                        kinect_one_depth_optical_frame:
-                          {}
-                      kinect_one_optical:
-                        {}
-                      kinect_one_rgb_frame:
-                        kinect_one_rgb_optical_frame:
-                          {}
-                  xtion:
-                    xtion_depth:
-                      {}
-                    xtion_optical:
-                      {}
+        {}
       Update Interval: 0
       Value: true
     - Alpha: 0.699999988079071
@@ -787,7 +669,7 @@ Visualization Manager:
       Name: HERA
     - Acceleration_Scaling_Factor: 0.1
       Class: moveit_rviz_plugin/MotionPlanning
-      Enabled: false
+      Enabled: true
       Move Group Namespace: ""
       MoveIt_Allow_Approximate_IK: false
       MoveIt_Allow_External_Program: false
@@ -816,6 +698,151 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          backrest_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_footprint:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          base_scan_back:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_scan_front:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_wheelBL:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_wheelBR:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_wheelFL:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_wheelFR:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          elbow_lift_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          elbow_pan_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_left_end_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_left_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_right_end_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_right_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          head:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kinect_one:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kinect_one_depth:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          kinect_one_optical:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          manip_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          manip_support_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          shoulder_lift_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          shoulder_pan_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso_sensor_plat:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          wrist_lift_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          wrist_pan_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          xtion:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          xtion_depth:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          xtion_optical:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
         Loop Animation: false
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
@@ -862,10 +889,155 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          backrest_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_footprint:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          base_scan_back:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_scan_front:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_wheelBL:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_wheelBR:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_wheelFL:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_wheelFR:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          elbow_lift_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          elbow_pan_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_left_end_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_left_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_right_end_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          gripper_right_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          head:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kinect_one:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kinect_one_depth:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          kinect_one_optical:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          manip_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          manip_support_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          shoulder_lift_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          shoulder_pan_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          torso_sensor_plat:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          wrist_lift_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          wrist_pan_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          xtion:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          xtion_depth:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          xtion_optical:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
         Robot Alpha: 1
         Show Robot Collision: false
         Show Robot Visual: true
-      Value: false
+      Value: true
       Velocity_Scaling_Factor: 0.1
     - Class: rviz/Image
       Enabled: true
@@ -904,7 +1076,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 27.15062713623047
+      Distance: 3.4258344173431396
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -912,22 +1084,22 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 5.012377738952637
-        Y: -7.850813388824463
-        Z: 0.7366907596588135
+        X: 0.9864822626113892
+        Y: 0.30259379744529724
+        Z: 0.2350689321756363
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.3952018022537231
+      Pitch: 0.7902019619941711
       Target Frame: <Fixed Frame>
-      Yaw: 3.332207441329956
+      Yaw: 4.1722092628479
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 836
+  Height: 704
   Hide Left Dock: false
   Hide Right Dock: false
   Image:
@@ -938,7 +1110,7 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001f3000002a6fc020000000efb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000000d30000013d00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc0000003d00000107000000c900fffffffa000000010100000002fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670000000000ffffffff000001f300fffffffb000000100044006900730070006c0061007900730100000000000001f30000015600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb00000016005800740069006f006e00200069006d006100670065000000020e000000bc0000000000000000fb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb00000018004b0069006e00650063007400200069006d00610067006500000001dd000000820000001600fffffffb0000000a0049006d006100670065010000014a000001990000001600fffffffb0000000a0049006d0061006700650100000228000000bb0000000000000000000000010000010f0000025efc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a0056006900650077007300000000280000025e000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000005580000003efc0100000002fb0000000800540069006d0065010000000000000558000002eb00fffffffb0000000800540069006d006501000000000000045000000000000000000000035f000002a600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001f300000222fc020000000dfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000000d30000013d00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc0000003d000002220000019a0100001cfa000000000100000003fb0000000a0049006d0061006700650100000000ffffffff0000005e00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000000ffffffff000001f300fffffffb000000100044006900730070006c0061007900730100000000000001f30000015600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb00000016005800740069006f006e00200069006d006100670065000000020e000000bc0000000000000000fb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb00000018004b0069006e00650063007400200069006d00610067006500000001dd000000820000001600fffffffb0000000a0049006d0061006700650100000228000000bb0000000000000000000000010000010f0000025efc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a0056006900650077007300000000280000025e000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000005220000003efc0100000002fb0000000800540069006d0065010000000000000522000003bc00fffffffb0000000800540069006d00650100000000000004500000000000000000000003290000022200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -947,6 +1119,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1368
-  X: 72
-  Y: 61
+  Width: 1314
+  X: 52
+  Y: 27

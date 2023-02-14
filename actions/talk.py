@@ -39,7 +39,7 @@ class Talk(AbstractAction):
         goal = TalkGoal()
         # set goal
         goal.phrase = translation
-        goal.lang = to_lang
+        #goal.lang = to_lang
         # talk
         result = self.robot.get_actuators().talk(goal)
         return 'success'
