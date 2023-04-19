@@ -15,6 +15,7 @@
   <arg name="objects"         default="true"/>
   <arg name="head"            default="true"/>
   <arg name="octomap"         default="true"/>
+  <arg name="detector"        default="true"/>
   
 
   <!-- hear -->
@@ -131,5 +132,8 @@
     </include>
   </group>
 
+  <group if="$(arg detector)">
+    <include file="$(find detector_2d)/launch/zed2.launch"></include>
+  </group>
   
 </launch>
