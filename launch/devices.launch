@@ -84,7 +84,7 @@
 
 
   <group if="$(arg enable_zed_wrapper)" > 
-      <include file="$(find zed_wrapper)/launch/zed2.launch"></include>
+      <include file="$(find zed_wrapper)/launch/zed2i.launch"></include>
   </group>
 
 </launch>
