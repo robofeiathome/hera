@@ -4,7 +4,7 @@ TebLocalPlannerROS:
   acc_lim_x: 0.5 # 0.5 # Maximum translational acceleration of the robot in meters/sec^2
   acc_lim_theta: 0.5 # 0.5 # Maximum angular acceleration of the robot in radians/sec^2
   max_vel_x: 0.4 # 0.4 # Maximum translational velocity of the robot in meters/sec
-  max_vel_x_backwards: 0.2 # 0.2 # Maximum absolute translational velocity of the robot while driving backwards in meters/sec. See optimization parameter weight_kinematics_forward_drive
+  max_vel_x_backwards: 0.0 # 0.2 # Maximum absolute translational velocity of the robot while driving backwards in meters/sec. See optimization parameter weight_kinematics_forward_drive
   max_vel_theta: 0.3 # 0.3 # Maximum angular velocity of the robot in radians/sec
 
   #The following parameters are relevant only for carlike robots:
