@@ -2,11 +2,11 @@
 <launch>
 
   <arg name="global_planner"      default="navfn/NavfnROS"/>
-  <arg name="local_planner"       default="teb_local_planner/TebLocalPlannerROS"/>
+  <arg name="local_planner"       default="dwa_local_planner/DWAPlannerROS"/>
   <!-- <arg name="local_planner"       default="eband_local_planner/EBandPlannerROS"/> -->
   <arg name="global_layers"       default="[ {name: static_layer, type: 'costmap_2d::StaticLayer'}, {name: obstacles_layer, type: 'costmap_2d::VoxelLayer'}, {name: inflation_layer, type: 'costmap_2d::InflationLayer'}]" />
   <arg name="local_layers"        default="[ {name: obstacles_layer, type: 'costmap_2d::VoxelLayer'}, {name: inflation_layer, type: 'costmap_2d::InflationLayer'}]"/>
-  <arg name="observation_sources" default="laser_scan_front_observation laser_scan_back_observation point_cloud_base_front_observation"/>
+  <arg name="observation_sources" default="laser_scan_front_observation"/>
 
   <arg name="xy_goal_tolerance"   default="0.1"/>
   <arg name="yaw_goal_tolerance"  default="0.05"/>

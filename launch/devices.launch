@@ -9,6 +9,7 @@
     <arg name="enable_kinect"       default="true"/>
     <arg name="enable_dynamixel"    default="true"/>
     <arg name="enable_camera"    default="true"/>
+    <arg name="enable_zed_wrapper"  default="true"/>
 
   <!-- base -->
   <group if="$(arg enable_base)" >
@@ -79,6 +80,11 @@
   <!-- dynamixel -->
   <group if="$(arg enable_dynamixel)" >
       <include file="$(find hera_control)/launch/dynamixel_controller.launch"/>
+  </group>
+
+
+  <group if="$(arg enable_zed_wrapper)" > 
+      <include file="$(find zed_wrapper)/launch/zed2i.launch"></include>
   </group>
 
 </launch>

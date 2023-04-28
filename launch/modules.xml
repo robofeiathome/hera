@@ -15,6 +15,7 @@
   <arg name="objects"         default="true"/>
   <arg name="head"            default="true"/>
   <arg name="octomap"         default="true"/>
+  <arg name="detector"        default="true"/>
   
 
   <!-- hear -->
@@ -115,12 +116,6 @@
 
 <!-- objects -->
   <group if="$(arg objects)">
-    <node name="dodo_detector_ros" pkg="dodo_detector_ros" type="detector.py" output="screen">
-        <rosparam command="load" file="$(find dodo_detector_ros)/config/main_config.yaml"/>
-        <param name="image_topic" value="/kinect_one/rgb/image_raw" /> 
-        <param name="point_cloud_topic" value="/kinect_one/depth/points" /> 
-    </node>
-    <!--<node name ="detect_output" pkg="hera_face" type="detect.py" output="screen"/>-->
     <include file="$(find hera_objects)/launch/objects.launch" />
   </group>
 
@@ -131,5 +126,8 @@
     </include>
   </group>
 
+  <group if="$(arg detector)">
+    <include file="$(find detector_2d)/launch/zed2.launch"></include>
+  </group>
   
 </launch>
