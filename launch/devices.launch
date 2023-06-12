@@ -2,14 +2,14 @@
 <launch>
 
     <!-- devices config -->
-    <arg name="enable_base"         default="true"/>
-    <arg name="enable_laser_front"  default="true"/>
-    <arg name="enable_laser_back"   default="true"/>
-    <arg name="enable_xtion"        default="true"/>
-    <arg name="enable_kinect"       default="true"/>
-    <arg name="enable_dynamixel"    default="true"/>
-    <arg name="enable_camera"    default="true"/>
-    <arg name="enable_zed_wrapper"  default="true"/>
+    <arg name="enable_base"           default="true"/>
+    <arg name="enable_laser_front"    default="true"/>
+    <arg name="enable_laser_back"     default="true"/>
+    <arg name="enable_xtion"          default="true"/>
+    <arg name="enable_kinect"         default="true"/>
+    <arg name="enable_dynamixel"      default="true"/>
+    <arg name="enable_camera"         default="true"/>
+    <arg name="enable_zed_wrapper"    default="true"/>
 
   <!-- base -->
   <group if="$(arg enable_base)" >
@@ -77,14 +77,15 @@
       </include>
   </group>
 
-  <!-- dynamixel -->
+  <!-- dynamixels -->
   <group if="$(arg enable_dynamixel)" >
       <include file="$(find hera_control)/launch/dynamixel_controller.launch"/>
   </group>
 
 
+
   <group if="$(arg enable_zed_wrapper)" > 
-      <include file="$(find zed_wrapper)/launch/zed2i.launch"></include>
+      <include file="$(find zed_wrapper)/launch/zed_no_tf.launch"></include>
   </group>
 
 </launch>
