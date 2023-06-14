@@ -116,6 +116,7 @@
 
 <!-- objects -->
   <group if="$(arg objects)">
+    <!--<node name ="detect_output" pkg="hera_face" type="detect.py" output="screen"/>-->
     <include file="$(find hera_objects)/launch/objects.launch" />
   </group>
 

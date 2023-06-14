@@ -85,7 +85,10 @@
 
 
   <group if="$(arg enable_zed_wrapper)" > 
+
+
       <include file="$(find zed_wrapper)/launch/zed_no_tf.launch"></include>
+
   </group>
 
 </launch>
