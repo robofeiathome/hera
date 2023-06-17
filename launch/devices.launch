@@ -79,7 +79,7 @@
 
   <!-- dynamixel -->
   <group if="$(arg enable_dynamixel)" >
-      <include file="$(find hera_control)/launch/dynamixel_controller.launch"/>
+      <include file="$(find hera_control)/launch/manipulator/joint_trajectory_controller.launch"/>
   </group>
 
 
