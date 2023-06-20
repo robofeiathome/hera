@@ -83,7 +83,7 @@
   <!-- manipulator -->
   <group if="$(arg manipulator)">  
     <include file="$(find hera_moveit_config)/launch/moveit_planning.launch" />
-    <!-- <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/> -->
+    <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/>
   </group>
 
 
