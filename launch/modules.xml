@@ -81,31 +81,9 @@
   </group>
 
   <!-- manipulator -->
-  <group if="$(arg manipulator)">
-
-    <!-- Load joint controller parameters for Gazebo -->
-    <!-- <rosparam file="$(find hera_moveit_config)/config/gazebo_controllers.yaml" /> -->
-    <!-- Spawn Gazebo ROS controllers -->
-    <!-- <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller" /> -->
-    <!-- Load ROS controllers -->
-    <!-- <include file="$(find hera_moveit_config)/launch/ros_controllers.launch"/> -->
-
-    <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->
-    <include file="$(find hera_moveit_config)/launch/move_group.launch">
-      <!-- <arg name="allow_trajectory_execution" value="true"/> -->
-      <!-- <arg name="moveit_controller_manager" value="ros_control" /> -->
-      <!-- <arg name="fake_execution_type" value="interpolate"/> -->
-      <!-- <arg name="info" value="true"/> -->
-      <!-- <arg name="debug" value="false"/> -->
-      <arg name="pipeline" value="ompl"/>
-      <arg name="load_robot_description" value="false"/>
-
-
-
-    </include>
-
+  <group if="$(arg manipulator)">  
+    <include file="$(find hera_moveit_config)/launch/moveit_planning.launch" />
     <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/>
-
   </group>
 
 
