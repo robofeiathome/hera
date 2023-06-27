@@ -13,9 +13,9 @@
   <arg name="navigation"      default="true"/>
   <arg name="manipulator"     default="true"/>
   <arg name="objects"         default="true"/>
-  <arg name="head"            default="true"/>
   <arg name="octomap"         default="true"/>
   <arg name="detector"        default="true"/>
+  <arg name="whisper"         default="true"/>
   
 
   <!-- hear -->
@@ -87,10 +87,6 @@
   </group>
 
 
-  <!-- head -->
-  <group if="$(arg head)">
-    <node name ="head" pkg="hera_control" type="head.py" output="screen"/>
-  </group> 
 
 <!-- objects -->
   <group if="$(arg objects)">
@@ -107,6 +103,10 @@
 
   <group if="$(arg detector)">
     <include file="$(find detector_2d)/launch/zed2.launch"></include>
+  </group>
+
+  <group if="$(arg whisper)">
+    <include file="$(find hera_speech)/launch/speech_services.launch"></include>
   </group>
   
 </launch>
