@@ -25,7 +25,6 @@
   <arg name="enable_navigation"   default="true"/>
   <arg name="enable_manipulator"  default="true"/>
   <arg name="enable_objects"      default="true"/>
-  <arg name="enable_head"      	  default="true"/>
   <arg name="enable_octomap"      default="true"/>
   <arg name="enable_color_filter" default="true"/>
   <arg name="enable_detector"     default="true"/>
@@ -73,7 +72,6 @@
       <arg name="navigation"   default="$(arg enable_navigation)"/>
       <arg name="manipulator"  default="$(arg enable_manipulator)"/>
       <arg name="objects"      default="$(arg enable_objects)"/>
-      <arg name="head"         default="$(arg enable_head)"/>
       <arg name="octomap"      default="$(arg enable_octomap)"/>
       <arg name="detector"     default="$(arg enable_detector)"/>
     </include>

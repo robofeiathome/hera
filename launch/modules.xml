@@ -13,7 +13,6 @@
   <arg name="navigation"      default="true"/>
   <arg name="manipulator"     default="true"/>
   <arg name="objects"         default="true"/>
-  <arg name="head"            default="true"/>
   <arg name="octomap"         default="true"/>
   <arg name="detector"        default="true"/>
   
@@ -85,12 +84,6 @@
     <include file="$(find hera_moveit_config)/launch/moveit_planning.launch" />
     <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/>
   </group>
-
-
-  <!-- head -->
-  <group if="$(arg head)">
-    <node name ="head" pkg="hera_control" type="head.py" output="screen"/>
-  </group> 
 
 <!-- objects -->
   <group if="$(arg objects)">
