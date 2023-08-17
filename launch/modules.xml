@@ -15,7 +15,6 @@
   <arg name="objects"         default="true"/>
   <arg name="octomap"         default="true"/>
   <arg name="detector"        default="true"/>
-  <arg name="whisper"         default="true"/>
   
 
   <!-- hear -->
@@ -54,8 +53,7 @@
     <node name ="save_face" pkg="hera_face" type="face_capture.py" output="screen"/>
     <node name ="face_recog" pkg="hera_face" type="people.py" output="screen"/>
     <node name ="face_check" pkg="hera_face" type="face_check.py" output="screen"/>
-    
-
+    <node name ="feature_detection" pkg="features_pkg" type="feature_detection.py" output="screen"/>
   </group>
 
   <!-- color_filter -->
@@ -86,8 +84,6 @@
     <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/>
   </group>
 
-
-
 <!-- objects -->
   <group if="$(arg objects)">
     <!--<node name ="detect_output" pkg="hera_face" type="detect.py" output="screen"/>-->
@@ -103,10 +99,6 @@
 
   <group if="$(arg detector)">
     <include file="$(find detector_2d)/launch/zed2.launch"></include>
-  </group>
-
-  <group if="$(arg whisper)">
-    <include file="$(find hera_speech)/launch/speech_services.launch"></include>
   </group>
   
 </launch>

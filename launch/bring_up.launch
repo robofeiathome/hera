@@ -28,7 +28,6 @@
   <arg name="enable_octomap"      default="true"/>
   <arg name="enable_color_filter" default="true"/>
   <arg name="enable_detector"     default="true"/>
-  <arg name="enable_whisper"      default="true"/>
 
   <arg name="enable_check_collision" default="true"/>
 
@@ -75,7 +74,6 @@
       <arg name="objects"      default="$(arg enable_objects)"/>
       <arg name="octomap"      default="$(arg enable_octomap)"/>
       <arg name="detector"     default="$(arg enable_detector)"/>
-      <arg name="whisper"      default="$(arg enable_whisper)"/>
     </include>
 
 </launch>
