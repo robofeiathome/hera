@@ -44,12 +44,6 @@
 
   <!-- people -->
   <group if="$(arg people)">
-    <!-- <node name="people" pkg="people" type="people_node.py" output="screen">
-      <param name="clf" value="/home/robofei/catkin_ws/filename.joblib" />
-      <param name="models" value="/home/robofei/openpose/models/" />
-      <param name="image_color" value="/camera/rgb/image_raw" />
-      <param name="image_cloud" value="/camera/depth/points" />
-    </node> -->
     <node name ="save_face" pkg="hera_face" type="face_capture.py" output="screen"/>
     <node name ="face_recog" pkg="hera_face" type="people.py" output="screen"/>
     <node name ="face_check" pkg="hera_face" type="face_check.py" output="screen"/>
@@ -71,8 +65,8 @@
       <param name="amcl_updates" value="10"/>
     </node> 
 
-    <include file="$(find hera)/launch/navigation/localization.xml" />
-    <include file="$(find hera)/launch/navigation/planning.xml" />
+    <include file="$(find hera_nav)/launch/localization.xml" />
+    <include file="$(find hera_nav)/launch/planning.xml" />
 
     <include file="$(find social_move_base)/launch/start.launch" />
 
@@ -86,7 +80,6 @@
 
 <!-- objects -->
   <group if="$(arg objects)">
-    <!--<node name ="detect_output" pkg="hera_face" type="detect.py" output="screen"/>-->
     <include file="$(find hera_objects)/launch/objects.launch" />
   </group>
 
