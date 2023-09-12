@@ -21,12 +21,6 @@
 
     <!-- odom -->
     <node pkg="hera_control" type="odom.py" name="robot_base_odom"/>
-    <!-- <node pkg="hera_control" type="utils.py" name="robot_base_utils">
-      <param name="enable_clear_costmap" value="True"/>
-      <param name="enable_amcl_update" value="True"/>
-      <param name="clear_costmap_period" value="10"/>
-      <param name="amcl_updates" value="10"/>
-    </node>  -->
   </group>
 
   <!-- laser front -->
@@ -51,7 +45,7 @@
     </node>
   </group>
 
-  <!-- xtion -->
+  <!-- Xtion -->
   <group if="$(arg enable_xtion)" >
      <include file="$(find openni2_launch)/launch/openni2.launch" >
     </include>
@@ -80,13 +74,9 @@
       <include file="$(find hera_control)/launch/manipulator/joint_trajectory_controller.launch"/>
   </group>
 
-
-
-  <group if="$(arg enable_zed_wrapper)" > 
-
-
+  <!-- ZED -->
+  <group if="$(arg enable_zed_wrapper)" >
       <include file="$(find zed_wrapper)/launch/zed_no_tf.launch"></include>
-
   </group>
 
 </launch>

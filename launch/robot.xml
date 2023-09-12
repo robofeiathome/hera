@@ -8,27 +8,11 @@
   <arg name="init_pos_z" 	default="0.0"/>
   <arg name="init_yaw"   	default="0.0"/>
 
-  <!-- ###################################################################### -->
-  <!-- ###################################################################### -->
-  <!-- ###################################################################### -->
-
   <!-- load urdf  -->
   <param name="robot_description"
     command="$(find xacro)/xacro $(find hera_description)/robots/$(arg robot_model).urdf.xacro"/>
 
-  <!-- Load joint controller configurations -->
-  <!-- <rosparam file="$(find hera_control)/config/manip_controller.yaml" command="load"/> -->
-  <!-- <rosparam file="$(find hera_control)/config/kinect_controller.yaml" command="load"/> -->
-
-  <!-- publishers -->
-  <!-- <include file="$(find hera_control)/launch/manip_controller.launch"/> -->
-  <!-- <include file="$(find hera_control)/launch/kinect_controller.launch"/> -->
-
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-
-  <!-- ###################################################################### -->
-  <!-- ###################################################################### -->
-  <!-- ###################################################################### -->
 
   <!-- spawn simulated robot -->
   <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
