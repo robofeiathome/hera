@@ -94,9 +94,5 @@
   <group if="$(arg detector)">
     <include file="$(find detector_2d)/launch/zed2.launch"></include>
   </group>
-  
-  <group if="$(arg tracker)">
-    <include file="$(find "
-  </group>
 
 </launch>
