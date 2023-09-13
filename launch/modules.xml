@@ -67,6 +67,7 @@
 
     <include file="$(find hera_nav)/launch/localization.xml" />
     <include file="$(find hera_nav)/launch/planning.xml" />
+    <include file="$(find hera_nav)/launch/robot_skills.launch"/>
 
     <include file="$(find social_move_base)/launch/start.launch" />
 
@@ -94,4 +95,8 @@
     <include file="$(find detector_2d)/launch/zed2.launch"></include>
   </group>
   
+  <group if="$(arg tracker)">
+    <include file="$(find "
+  </group>
+
 </launch>
