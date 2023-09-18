@@ -74,6 +74,8 @@
       <arg name="objects"      default="$(arg enable_objects)"/>
       <arg name="octomap"      default="$(arg enable_octomap)"/>
       <arg name="detector"     default="$(arg enable_detector)"/>
+      <arg name="tracker"     default="$(arg enable_tracker)"/>
+      <arg name="whisper"     default="$(arg enable_whisper)"/>
     </include>
 
 </launch>
