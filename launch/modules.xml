@@ -67,11 +67,11 @@
       <param name="amcl_updates" value="10"/>
     </node> 
 
-    <include file="$(find hera_nav)/launch/localization.xml" />
-    <include file="$(find hera_nav)/launch/planning.xml" />
+    <include file="$(find hera_nav)/launch/amcl.launch" />
+    <include file="$(find hera_nav)/launch/move_base.launch" />
     <include file="$(find hera_nav)/launch/robot_skills.launch"/>
 
-    <include file="$(find social_move_base)/launch/start.launch" />
+    <!--<include file="$(find social_move_base)/launch/start.launch" />-->
 
   </group>
 
