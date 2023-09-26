@@ -53,7 +53,7 @@
 
   <!-- Camera -->
   <group if="$(arg enable_camera)" > 
-      <include file="$(find usb_cam)/launch/usb_cam-test.launch">
+      <include file="$(find usb_cam)/launch/usb_cam.launch">
       </include>
   </group>
 
