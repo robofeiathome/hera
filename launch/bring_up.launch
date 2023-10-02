@@ -4,6 +4,7 @@
   <!-- main info -->
   <arg name="enable_rviz"         default="false"/>
   <arg name="map_name"            default="fei_k5"/>
+  <arg name="model_name"          default="new_and_old_objects"/>
   <arg name="resources"           default="$(find hera)/resources"/>
 
   <!-- robot info -->
@@ -63,6 +64,7 @@
     <include file="$(find hera)/launch/modules.xml" >
       <arg name="robot_name"   default="$(arg robot_name)"/>
       <arg name="map_name"     default="$(arg map_name)"/>
+      <arg name="model_name"   default="$(arg model_name)"/>
       <arg name="resources"    default="$(arg resources)" />
       <arg name="hear"         default="$(arg enable_hear)"/>
       <arg name="talk"         default="$(arg enable_talk)"/>
