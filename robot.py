@@ -26,7 +26,7 @@ class Robot(AbstractAgent):
         super(Robot, self).__init__()
 
         ''' actions '''
-        self.actions.add_action('face', Face(self))
+        #self.actions.add_action('face', Face(self))
         self.actions.add_action('goto', Goto(self))
         self.actions.add_action('gotosocial', GotoSocial(self))
         self.actions.add_action('gotopose', GotoPose(self))
