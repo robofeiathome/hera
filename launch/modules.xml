@@ -69,7 +69,10 @@
 
     <include file="$(find hera_nav)/launch/amcl.launch" />
     <include file="$(find hera_nav)/launch/move_base.launch" />
-    <include file="$(find hera_nav)/launch/robot_skills.launch"/>
+    <include file="$(find hera_nav)/launch/robot_skills.launch">
+      <arg name="map_name" default="$(arg map_name)"/>
+    </include>
+
 
     <!--<include file="$(find social_move_base)/launch/start.launch" />-->
 
