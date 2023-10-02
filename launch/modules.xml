@@ -49,7 +49,7 @@
     <node name ="save_face" pkg="hera_face" type="face_capture.py" output="screen"/>
     <node name ="face_recog" pkg="hera_face" type="people.py" output="screen"/>
     <node name ="face_check" pkg="hera_face" type="face_check.py" output="screen"/>
-    <node name ="feature_detection" pkg="features_pkg" type="feature_detection.py" output="screen"/>
+    <node name ="feature_detection" pkg="features_pkg" type="feature_recognition.py" output="screen"/>
   </group>
 
   <!-- color_filter -->
