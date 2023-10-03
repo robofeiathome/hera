@@ -3,7 +3,7 @@
 
   <arg name="robot_name"      default=""/>
   <arg name="map_name"        default="fei_k5"/>
-  <arg name="model_name"      default="new_and_old_objects"/>
+  <arg name="model_name"      default="$(find detector_2d)/models/new_and_old_objects.pt"/>
   <arg name="resources"       default=""/>
 
   <arg name="hear"            default="true"/>
