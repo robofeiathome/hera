@@ -4,6 +4,7 @@
   <arg name="robot_name"      default=""/>
   <arg name="map_name"        default="fei_k5"/>
   <arg name="model_name"      default="$(find detector_2d)/models/new_and_old_objects.pt"/>
+  <arg name="local_planner"   default="$(find hera_nav)/config/planner/local_planner_teb_params.yaml"/>
   <arg name="resources"       default=""/>
 
   <arg name="hear"            default="true"/>
@@ -69,13 +70,15 @@
     </node> 
 
     <include file="$(find hera_nav)/launch/amcl.launch" />
-    <include file="$(find hera_nav)/launch/move_base.launch" />
+
+    <include file="$(find hera_nav)/launch/move_base.launch">
+      <arg name="local_planner" default="$(arg local_planner)"/>
+    </include>
+
     <include file="$(find hera_nav)/launch/robot_skills.launch">
       <arg name="map_name" default="$(arg map_name)"/>
     </include>
 
-
-    <!--<include file="$(find social_move_base)/launch/start.launch" />-->
 
   </group>
 
