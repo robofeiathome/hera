@@ -9,7 +9,7 @@
     <arg name="enable_kinect"         default="true"/>
     <arg name="enable_dynamixel"      default="true"/>
     <arg name="enable_camera"         default="true"/>
-    <arg name="enable_zed_wrapper"    default="true"/>
+    <arg name="enable_realsense"      default="true"/>
 
   <!-- base -->
   <group if="$(arg enable_base)" >
@@ -74,9 +74,9 @@
       <include file="$(find hera_control)/launch/manipulator/joint_trajectory_controller.launch"/>
   </group>
 
-  <!-- ZED -->
-  <group if="$(arg enable_zed_wrapper)" >
-      <include file="$(find zed_wrapper)/launch/zed_no_tf.launch"></include>
+  <!-- RealSense -->
+  <group if="$(arg enable_realsense)" >
+      <include file="$(find realsense2_camera)/launch/rs_camera.launch"></include>
   </group>
 
 </launch>

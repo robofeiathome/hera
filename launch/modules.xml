@@ -19,6 +19,7 @@
   <arg name="detector"        default="true"/>
   <arg name="whisper"         default="true"/>
   <arg name="tracker"         default="true"/>
+  <arg name="predictor"       default="true"/>
   
 
   <!-- hear -->
@@ -48,10 +49,15 @@
 
   <!-- people -->
   <group if="$(arg people)">
-    <node name ="save_face" pkg="hera_face" type="face_capture.py" output="screen"/>
-    <node name ="face_recog" pkg="hera_face" type="people.py" output="screen"/>
-    <node name ="face_check" pkg="hera_face" type="face_check.py" output="screen"/>
-    <node name ="feature_detection" pkg="features_pkg" type="feature_recognition.py" output="screen"/>
+    <node name="face_recognition" pkg="hera_face" type="face_recog.py" output="screen">
+        <rosparam command="load" file="$(find hera_face)/config/main_cfg.yaml"/>
+    </node>
+    <node name="face_capture" pkg="hera_face" type="face_capture.py" output="screen">
+        <rosparam command="load" file="$(find hera_face)/config/main_cfg.yaml"/>
+    </node>
+    <node name="face_check" pkg="hera_face" type="face_check.py" output="screen">
+        <rosparam command="load" file="$(find hera_face)/config/main_cfg.yaml"/>
+    </node>
   </group>
 
   <!-- color_filter -->
@@ -112,6 +118,10 @@
 
   <group if="$(arg whisper)">
     <include file="$(find hera_speech)/launch/speech_services.launch"/>
+  </group>
+
+  <group if="$(arg predictor)">
+    <include file="$(find detector_2d)/launch/predictor.launch"/>
   </group>
 
 </launch>
