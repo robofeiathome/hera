@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <!-- Main information -->
+    <arg name="simulation"            default="false"/>
+    <arg name="map_name"              default="fei_k419"/>
+    <arg name="model_name"            default="objects"/>
+    <arg name="world_name"            default="robocup_2019"/>
+    <arg name="local_planner_name"    default="teb_local_planner"/>
+    <arg name="enable_interface"      default="true"/>
+
+    <!-- Modules arguments -->
+    <arg name="speech"                default="false"/>
+    <arg name="map"                   default="false"/>
+    <arg name="navigation"            default="true"/>
+    <arg name="manipulation"          default="true"/>
+    <arg name="octomap"               default="false"/>
+    <arg name="object_recognition"    default="false"/>
+    <arg name="face_recognition"      default="false"/>
+    <arg name="people_tracking"       default="false"/>
+    <arg name="posture_analysis"      default="false"/>
+
+    <!-- Simulation Launch -->
+    <group if="$(arg simulation)">
+        <include file="$(find hera_simulation)/launch/simulation.launch">
+            <arg name="world_name" value="$(arg world_name)"/>
+        </include>
+    </group>  
+
+    <!-- Devices Launch -->
+    <group unless="$(arg simulation)">
+        <include file="$(find hera)/launch/devices.launch">
+            <arg name="base"        value="$(arg navigation)"/>
+            <arg name="laser"       value="$(arg navigation)"/>
+            <arg name="realsense"   value="$(arg object_recognition)"/>
+            <arg name="dynamixel"   value="$(arg manipulation)"/>
+            </include>
+    </group>
+
+    <!-- Robot Launch -->
+    <include file="$(find hera)/launch/robot.xml"/>
+
+    <!-- Modules Launch -->
+    <include file="$(find hera)/launch/modules.xml">
+        <arg name="simulation"          value="$(arg simulation)"/>
+        <arg name="speech"              value="$(arg speech)"/>
+        <arg name="map"                 value="$(arg map)"/>
+        <arg name="navigation"          value="$(arg navigation)"/>
+        <arg name="manipulation"        value="$(arg manipulation)"/>
+        <arg name="octomap"             value="$(arg octomap)"/>
+        <arg name="object_recognition"  value="$(arg object_recognition)"/>
+        <arg name="face_recognition"    value="$(arg face_recognition)"/>
+        <arg name="people_tracking"     value="$(arg people_tracking)"/>
+        <arg name="posture_analysis"    value="$(arg posture_analysis)"/>
+    </include>
+
+    <!-- Interface Launch -->
+    <group if="$(arg enable_interface)">
+        <include file="$(find hera)/launch/interface.launch"/>
+    </group>
+</launch>
