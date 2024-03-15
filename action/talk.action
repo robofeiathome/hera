@@ -1,7 +1,0 @@
-string phrase
-string from_lang
-string to_lang
----
-string result
----
-string feedback

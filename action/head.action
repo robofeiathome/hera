@@ -1,6 +1,0 @@
-std_msgs/Float32 pan
-std_msgs/Float32 tilt
----
-string result
----
-string feedback
