@@ -45,6 +45,7 @@
         <arg name="simulation"          value="$(arg simulation)"/>
         <arg name="speech"              value="$(arg speech)"/>
         <arg name="map"                 value="$(arg map)"/>
+        <arg name="map_name"            value="$(arg map_name)"/>
         <arg name="navigation"          value="$(arg navigation)"/>
         <arg name="manipulation"        value="$(arg manipulation)"/>
         <arg name="octomap"             value="$(arg octomap)"/>
