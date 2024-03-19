@@ -32,7 +32,7 @@
   <!-- map -->
   <group if="$(arg map)">
     <include file="$(find map)/launch/map.launch">
-      <arg name="map_resource" default="$(arg resources)/map/$(arg map_name)"/>
+      <arg name="map_resource" default="$(find robot_resources)/map/$(arg map_name)"/>
     </include>
   </group>
 
