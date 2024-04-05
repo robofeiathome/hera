@@ -19,6 +19,14 @@
   <arg name="posture_analysis"      default="false"/>
   <arg name="whisper"               default="false"/>
   
+  <!-- load sensors/actuators -->
+  <rosparam command="load" file="$(find hera)/config/sensors.yaml" />
+  <rosparam command="load" file="$(find hera)/config/actuators.yaml" />
+
+    <!-- start agent -->
+  <node name="hera" pkg="hera" type="hera_node"
+      launch-prefix="xterm -title $(arg robot_name) -hold -e" />
+
   <!-- Speech -->
   <group if="$(arg speech)">
     <include file="$(find hera_speech)/launch/speech_services.launch"/>
@@ -67,6 +75,7 @@
 <!-- objects -->
   <group if="$(arg object_recognition)">
     <include file="$(find hera_objects)/launch/objects.launch" />
+    <include file="$(find detector_2d)/launch/detector.launch"/>
   </group>
 
   <!-- octomap -->
