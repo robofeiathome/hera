@@ -72,6 +72,11 @@
     <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/>
   </group>
 
+<!-- face_recognition -->
+  <group if="$(arg face_recognition)">
+    <include file="$(find hera_face)/launch/hera_face.launch"/>
+  </group>
+
 <!-- objects -->
   <group if="$(arg object_recognition)">
     <include file="$(find hera_objects)/launch/objects.launch" />
