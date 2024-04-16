@@ -93,4 +93,8 @@
     <include file="$(find hera_speech)/launch/speech_services.launch"/>
   </group>
 
+  <group if="$(arg predictor)">
+    <include file="$(find detector_2d)/launch/predictor.launch"/>
+  </group>
+
 </launch>

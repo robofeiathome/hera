@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
+
   <!-- devices config -->
   <arg name="base"           default="true"/>
   <arg name="laser"          default="true"/>
@@ -33,6 +34,7 @@
       <node name="realsense_node" pkg="realsense2_camera" type="realsense2_camera_node" output="screen">
         <param name="initial_reset" value="true"/>
       </node>
+
   </group>
 
 </launch>
