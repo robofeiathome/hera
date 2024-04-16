@@ -2,67 +2,46 @@
 <launch>
 
   <arg name="robot_name"      default=""/>
-  <arg name="map_name"        default="fei_k5"/>
-  <arg name="model_name"      default="$(find detector_2d)/models/new_and_old_objects.pt"/>
-  <arg name="local_planner"   default="$(find hera_nav)/config/planner/local_planner_teb_params.yaml"/>
+  <arg name="map_name"        default="fei_k419"/>
+  <arg name="model_name"      default="objects"/>
+  <arg name="local_planner"   default="local_planner_teb_params"/>
   <arg name="resources"       default=""/>
+  <arg name="simulation"      default="false"/>
 
-  <arg name="hear"            default="true"/>
-  <arg name="talk"            default="true"/>
-  <arg name="map"             default="true"/>
-  <arg name="people"          default="true"/>
-  <arg name="color_filter"    default="true"/>
-  <arg name="navigation"      default="true"/>
-  <arg name="manipulator"     default="true"/>
-  <arg name="objects"         default="true"/>
-  <arg name="octomap"         default="true"/>
-  <arg name="detector"        default="true"/>
-  <arg name="whisper"         default="true"/>
-  <arg name="tracker"         default="true"/>
-  <arg name="predictor"       default="true"/>
+  <arg name="speech"                default="false"/>
+  <arg name="map"                   default="false"/>
+  <arg name="navigation"            default="false"/>
+  <arg name="manipulation"          default="false"/>
+  <arg name="octomap"               default="false"/>
+  <arg name="object_recognition"    default="false"/>
+  <arg name="face_recognition"      default="false"/>
+  <arg name="people_tracking"       default="false"/>
+  <arg name="posture_analysis"      default="false"/>
+  <arg name="whisper"               default="false"/>
   
+  <!-- load sensors/actuators -->
+  <rosparam command="load" file="$(find hera)/config/sensors.yaml" />
+  <rosparam command="load" file="$(find hera)/config/actuators.yaml" />
 
-  <!-- hear -->
-  <group if="$(arg hear)">
-    <node name="Server_Speech" pkg="gsr_ros" type="recognition.py" output="screen">
-	      <!-- API Options: Google, Sphinx, Wit, Houndify, DeepSpeech-->
-    		<param name="API" value="Google" />
-    		<param name='KEY1' value=''/>
-    		<param name='KEY2' value=''/>
-    		<param name="PATH" value="$(find gsr_ros)/src" />
-    </node>
+    <!-- start agent -->
+  <node name="hera" pkg="hera" type="hera_node"
+      launch-prefix="xterm -title $(arg robot_name) -hold -e" />
+
+  <!-- Speech -->
+  <group if="$(arg speech)">
+    <include file="$(find hera_speech)/launch/speech_services.launch"/>
   </group>
 
-  <!-- talk -->
-  <group if="$(arg talk)">
-    <node name="gtts_ros" pkg="gtts_ros" type="gtts_node.py" output="screen">
-      <param name="ONLINE" value="true" />
-    </node>
+  <!-- Whisper -->
+  <group if="$(arg whisper)">
+    <include file="$(find hera_speech)/launch/whisper.launch"/>
   </group>
 
   <!-- map -->
   <group if="$(arg map)">
     <include file="$(find map)/launch/map.launch">
-      <arg name="map_resource" default="$(arg resources)/map/$(arg map_name)"/>
+      <arg name="map_resource" default="$(find robot_resources)/map/$(arg map_name)"/>
     </include>
-  </group>
-
-  <!-- people -->
-  <group if="$(arg people)">
-    <node name="face_recognition" pkg="hera_face" type="face_recog.py" output="screen">
-        <rosparam command="load" file="$(find hera_face)/config/main_cfg.yaml"/>
-    </node>
-    <node name="face_capture" pkg="hera_face" type="face_capture.py" output="screen">
-        <rosparam command="load" file="$(find hera_face)/config/main_cfg.yaml"/>
-    </node>
-    <node name="face_check" pkg="hera_face" type="face_check.py" output="screen">
-        <rosparam command="load" file="$(find hera_face)/config/main_cfg.yaml"/>
-    </node>
-  </group>
-
-  <!-- color_filter -->
-  <group if="$(arg color_filter)">
-    <node name ="color_filter" pkg="hera_face" type="blob_detection.py" output="screen"/>
   </group>
 
   <!-- navigation -->
@@ -78,25 +57,25 @@
     <include file="$(find hera_nav)/launch/amcl.launch" />
 
     <include file="$(find hera_nav)/launch/move_base.launch">
-      <arg name="local_planner" default="$(arg local_planner)"/>
+      <arg name="local_planner" default="$(find hera_nav)/config/planner/$(arg local_planner).yaml"/>
     </include>
 
     <include file="$(find hera_nav)/launch/robot_skills.launch">
       <arg name="map_name" default="$(arg map_name)"/>
     </include>
-
-
   </group>
 
   <!-- manipulator -->
-  <group if="$(arg manipulator)">  
-    <include file="$(find hera_moveit_config)/launch/moveit_planning.launch" />
+  <group if="$(arg manipulation)">  
+    <!-- <include file="$(find hera_moveit_config)/launch/moveit_planning.launch" /> -->
+    <include file="$(find hera_control)/launch/joint_trajectory_controller.launch" />
     <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/>
   </group>
 
 <!-- objects -->
-  <group if="$(arg objects)">
+  <group if="$(arg object_recognition)">
     <include file="$(find hera_objects)/launch/objects.launch" />
+    <include file="$(find detector_2d)/launch/detector.launch"/>
   </group>
 
   <!-- octomap -->
@@ -106,13 +85,7 @@
     </include>
   </group>
 
-  <group if="$(arg detector)">
-    <include file="$(find detector_2d)/launch/detector.launch">
-      <arg name="model" default="$(arg model_name)"/>
-    </include>
-  </group>
-
-  <group if="$(arg tracker)">
+  <group if="$(arg people_tracking)">
     <include file="$(find hera_tracker)/launch/super_flow.launch"/>
   </group>
 

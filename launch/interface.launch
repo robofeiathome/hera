@@ -4,7 +4,7 @@
   <!-- interfaces -->
   <arg name="enable_rviz"   default="true"/>
   <arg name="enable_teleop" default="true"/>
-  <arg name="enable_bot"    default="true"/>
+  <arg name="enable_bot"    default="false"/>
 
   <!-- rviz -->
   <group if="$(arg enable_rviz)" >
