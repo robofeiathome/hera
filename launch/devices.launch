@@ -30,9 +30,7 @@
 
   <!-- realsense -->
   <group if="$(arg realsense)" >
-      <node name="realsense_node" pkg="realsense2_camera" type="realsense2_camera_node" output="screen">
-        <param name="initial_reset" value="true"/>
-      </node>
+      <include file="$(find realsense2_camera)/launch/rs_rgbd.launch"/>
   </group>
 
 </launch>
