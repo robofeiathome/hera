@@ -9,9 +9,10 @@
     <arg name="local_planner_name"    default="teb_local_planner"/>
     <arg name="enable_interface"      default="true"/>
 
-    <!-- Modules arguments -->
+    <!-- Modules arguments -->ß
+    <arg name="whisper"               default="false"/>
     <arg name="speech"                default="false"/>
-    <arg name="map"                   default="false"/>
+    <arg name="map"                   default="true"/>
     <arg name="navigation"            default="true"/>
     <arg name="manipulation"          default="true"/>
     <arg name="octomap"               default="false"/>
@@ -19,6 +20,7 @@
     <arg name="face_recognition"      default="false"/>
     <arg name="people_tracking"       default="false"/>
     <arg name="posture_analysis"      default="false"/>
+    <arg name="realsense"             default="true"/>
 
     <!-- Simulation Launch -->
     <group if="$(arg simulation)">
@@ -32,7 +34,7 @@
         <include file="$(find hera)/launch/devices.launch">
             <arg name="base"        value="$(arg navigation)"/>
             <arg name="laser"       value="$(arg navigation)"/>
-            <arg name="realsense"   value="$(arg object_recognition)"/>
+            <arg name="realsense"   value="$(arg realsense)"/>
             <arg name="dynamixel"   value="$(arg manipulation)"/>
             </include>
     </group>
@@ -44,6 +46,7 @@
     <include file="$(find hera)/launch/modules.xml">
         <arg name="simulation"          value="$(arg simulation)"/>
         <arg name="speech"              value="$(arg speech)"/>
+        <arg name="whisper"             value="$(arg whisper)"/>
         <arg name="map"                 value="$(arg map)"/>
         <arg name="map_name"            value="$(arg map_name)"/>
         <arg name="navigation"          value="$(arg navigation)"/>

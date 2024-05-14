@@ -4,7 +4,7 @@
   <arg name="robot_name"      default=""/>
   <arg name="map_name"        default="fei_k419"/>
   <arg name="model_name"      default="objects"/>
-  <arg name="local_planner"   default="local_planner_teb_params"/>
+  <arg name="local_planner"   default="local_planner_dwa_params"/>
   <arg name="resources"       default=""/>
   <arg name="simulation"      default="false"/>
 
@@ -34,7 +34,7 @@
 
   <!-- Whisper -->
   <group if="$(arg whisper)">
-    <include file="$(find hera_speech)/launch/whisper.launch"/>
+    <include file="$(find hera_speech)/launch/whisper_module.launch"/>
   </group>
 
   <!-- map -->
