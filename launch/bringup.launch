@@ -38,6 +38,12 @@
             <arg name="dynamixel"   value="$(arg manipulation)"/>
             </include>
     </group>
+    
+    <group unless="$(arg map)">
+     <!-- Start slam_gmapping -->
+        <node name="gmapping" pkg="gmapping" type="slam_gmapping" output="screen"
+            args="scan:=base_scan_front _base_frame:=base"/>
+    </group>
 
     <!-- Robot Launch -->
     <include file="$(find hera)/launch/robot.xml"/>
