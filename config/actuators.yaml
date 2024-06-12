@@ -7,10 +7,6 @@ robot_actuators:
       comm: ACTION
       node: gtts_ros/goal
       type: gtts_ros/TalkActionGoal
-    hear:
-      comm: SERVICE
-      node: Recognition
-      type: gsr_ros/Start
     move:
       comm: TOPIC
       node: cmd_vel
