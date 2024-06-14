@@ -68,7 +68,6 @@ catkin_python_setup()
    gotosocial.action
    gotopose.action
    talk.action
-   hear.action
    face.action
    move.action
    follow.action 
@@ -81,7 +80,6 @@ catkin_python_setup()
    DEPENDENCIES
    std_msgs
    actionlib_msgs
-   gsr_ros
    geometry_msgs
  )
 
