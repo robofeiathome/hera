@@ -55,7 +55,7 @@
         <arg name="whisper"             value="$(arg whisper)"/>
         <arg name="map"                 value="$(arg map)"/>
         <arg name="map_name"            value="$(arg map_name)"/>
-        <arg nmae="model_name"          value="$(arg model_name)"/>
+        <arg name="model_name"          value="$(arg model_name)"/>
         <arg name="navigation"          value="$(arg navigation)"/>
         <arg name="manipulation"        value="$(arg manipulation)"/>
         <arg name="octomap"             value="$(arg octomap)"/>
