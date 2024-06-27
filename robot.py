@@ -5,7 +5,6 @@ from actions.face import Face
 from actions.goto import Goto
 from actions.goto_social import GotoSocial
 from actions.gotopose import GotoPose
-from actions.hear import Hear
 from actions.move import Move
 from actions.pose import Pose
 from actions.talk import Talk
@@ -30,7 +29,6 @@ class Robot(AbstractAgent):
         self.actions.add_action('goto', Goto(self))
         self.actions.add_action('gotosocial', GotoSocial(self))
         self.actions.add_action('gotopose', GotoPose(self))
-        self.actions.add_action('hear', Hear(self))
         self.actions.add_action('move', Move(self))
         self.actions.add_action('pose', Pose(self))
         self.actions.add_action('talk', Talk(self))

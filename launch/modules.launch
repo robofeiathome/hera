@@ -3,14 +3,14 @@
 
   <arg name="robot_name"      default=""/>
   <arg name="map_name"        default="fei_k419"/>
-  <arg name="model_name"      default="objects"/>
+  <arg name="model_name"      default="yolov8n"/>
   <arg name="local_planner"   default="local_planner_dwa_params"/>
   <arg name="resources"       default=""/>
   <arg name="simulation"      default="false"/>
 
   <arg name="speech"                default="false"/>
-  <arg name="map"                   default="false"/>
-  <arg name="navigation"            default="false"/>
+  <arg name="map"                   default="true"/>
+  <arg name="navigation"            default="true"/>
   <arg name="manipulation"          default="false"/>
   <arg name="octomap"               default="false"/>
   <arg name="object_recognition"    default="false"/>
@@ -80,7 +80,9 @@
 <!-- objects -->
   <group if="$(arg object_recognition)">
     <include file="$(find hera_objects)/launch/objects.launch" />
-    <include file="$(find detector_2d)/launch/detector.launch"/>
+    <include file="$(find detector_2d)/launch/detector.launch">
+      <arg name="model_name" value="$(arg model_name)" />
+    </include>
   </group>
 
   <!-- octomap -->

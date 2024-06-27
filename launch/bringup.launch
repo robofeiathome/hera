@@ -49,7 +49,7 @@
     <include file="$(find hera)/launch/robot.xml"/>
 
     <!-- Modules Launch -->
-    <include file="$(find hera)/launch/modules.xml">
+    <include file="$(find hera)/launch/modules.launch">
         <arg name="simulation"          value="$(arg simulation)"/>
         <arg name="speech"              value="$(arg speech)"/>
         <arg name="whisper"             value="$(arg whisper)"/>
