@@ -6,7 +6,7 @@
     <arg name="map_name"              default="fei_k419"/>
     <arg name="model_name"            default="yolov8n"/>
     <arg name="world_name"            default="robocup_2019"/>
-    <arg name="local_planner_name"    default="teb_local_planner"/>
+    <arg name="local_planner_name"    default="local_planner_teb_params.yaml"/>
     <arg name="enable_interface"      default="true"/>
 
     <!-- Modules arguments -->
@@ -63,6 +63,7 @@
         <arg name="face_recognition"    value="$(arg face_recognition)"/>
         <arg name="people_tracking"     value="$(arg people_tracking)"/>
         <arg name="posture_analysis"    value="$(arg posture_analysis)"/>
+        <arg name="local_planner_name"  value="$(arg local_planner_name)"/>
     </include>
 
     <!-- Interface Launch -->

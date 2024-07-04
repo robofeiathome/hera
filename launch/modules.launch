@@ -4,7 +4,7 @@
   <arg name="robot_name"      default=""/>
   <arg name="map_name"        default="fei_k419"/>
   <arg name="model_name"      default="yolov8n"/>
-  <arg name="local_planner"   default="local_planner_dwa_params"/>
+  <arg name="local_planner_name"   default="local_planner_teb_params.yaml"/>
   <arg name="resources"       default=""/>
   <arg name="simulation"      default="false"/>
 
@@ -57,7 +57,7 @@
     <include file="$(find hera_nav)/launch/amcl.launch" />
 
     <include file="$(find hera_nav)/launch/move_base.launch">
-      <arg name="local_planner" default="$(find hera_nav)/config/planner/$(arg local_planner).yaml"/>
+      <arg name="local_planner_name" default="$(arg local_planner_name)"/>
     </include>
 
     <include file="$(find hera_nav)/launch/robot_skills.launch">
