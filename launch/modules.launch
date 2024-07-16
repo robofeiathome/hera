@@ -5,6 +5,7 @@
   <arg name="map_name"        default="fei_k419"/>
   <arg name="model_name"      default="yolov8n"/>
   <arg name="local_planner_name"   default="local_planner_teb_params.yaml"/>
+  <arg name="costmap_params_name"   default="costmap_common_params.yaml"/>
   <arg name="resources"       default=""/>
   <arg name="simulation"      default="false"/>
 
@@ -58,6 +59,7 @@
 
     <include file="$(find hera_nav)/launch/move_base.launch">
       <arg name="local_planner_name" default="$(arg local_planner_name)"/>
+      <arg name="costmap_params_name"   default="$(arg costmap_params_name)"/>
     </include>
 
     <include file="$(find hera_nav)/launch/robot_skills.launch">
