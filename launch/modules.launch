@@ -98,8 +98,5 @@
     <include file="$(find hera_tracker)/launch/super_flow.launch"/>
   </group>
 
-  <group if="$(arg whisper)">
-    <include file="$(find hera_speech)/launch/speech_services.launch"/>
-  </group>
 
 </launch>
