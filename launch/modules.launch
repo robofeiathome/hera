@@ -28,15 +28,19 @@
   <node name="hera" pkg="hera" type="hera_node"
       launch-prefix="xterm -title $(arg robot_name) -hold -e" />
 
+  <!-- system integration -->
+  <node name="cmd_service" pkg="system_integration" type="cmd_service.py"/>
+
   <!-- Speech -->
   <group if="$(arg speech)">
     <include file="$(find hera_speech)/launch/speech_services.launch"/>
   </group>
 
-  <!-- Whisper -->
+  <!-- Whisper 
   <group if="$(arg whisper)">
     <include file="$(find hera_speech)/launch/whisper_module.launch"/>
   </group>
+  -->
 
   <!-- map -->
   <group if="$(arg map)">
@@ -74,18 +78,22 @@
     <node name ="manipulator" pkg="hera_control" type="manipulator.py" output="screen"/>
   </group>
 
-<!-- face_recognition -->
+<!-- face_recognition 
   <group if="$(arg face_recognition)">
     <include file="$(find hera_face)/launch/hera_face.launch"/>
   </group>
+  -->
 
-<!-- objects -->
+<!-- objects   -->
   <group if="$(arg object_recognition)">
     <include file="$(find hera_objects)/launch/objects.launch" />
-    <include file="$(find detector_2d)/launch/detector.launch">
+    
+    <!--<include file="$(find detector_2d)/launch/detector.launch">
       <arg name="model_name" value="$(arg model_name)" />
-    </include>
+      
+    </include>-->
   </group>
+
 
   <!-- octomap -->
   <group if="$(arg octomap)">
@@ -94,8 +102,14 @@
     </include>
   </group>
 
+  <!-- Tracker 
   <group if="$(arg people_tracking)">
     <include file="$(find hera_tracker)/launch/super_flow.launch"/>
+  </group>
+  -->
+
+  <group if="$(arg posture_analysis)">
+    <include file="$(find posture_analysis)/launch/gesture_recognition.launch"/>
   </group>
 
 
